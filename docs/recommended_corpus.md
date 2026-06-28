@@ -8,8 +8,8 @@ A partir da Fase 2, esses materiais servirão de base para:
 
 - geração de **embeddings** e indexação em um **banco de dados vetorial**;
 - **busca semântica** (semantic search) sobre o conteúdo dos documentos;
-- arquitetura **RAG (Retrieval-Augmented Generation)**, na qual trechos relevantes desses documentos são recuperados dinamicamente e fornecidos como contexto ao modelo generativo;
-- produção de respostas **fundamentadas (grounded)** em fontes reconhecidas pela indústria, reduzindo o risco de alucinação observado na Fase 1.
+- arquitetura **RAG (Retrieval-Augmented Generation)**, na qual trechos relevantes desses documentos são recuperados dinamicamente e fornecidos como contexto ao pipeline analítico;
+- produção de saídas **fundamentadas (grounded)** em fontes reconhecidas pela indústria, enriquecendo extração, análise e etapas posteriores de apoio à resposta.
 
 ---
 
@@ -21,7 +21,7 @@ A partir da Fase 2, esses materiais servirão de base para:
 - **NIST SP 800-61 — Computer Security Incident Handling Guide** — guia detalhado com o ciclo de vida de resposta a incidentes (preparação, detecção e análise, contenção/erradicação/recuperação, atividades pós-incidente).
 
 **Por que são relevantes:**
-Esses documentos fornecem a estrutura conceitual e a terminologia padrão para classificar incidentes e definir ações de resposta apropriadas. O SP 800-61, em particular, é a referência mais citada na indústria para procedimentos passo a passo de tratamento de incidentes — exatamente o tipo de conhecimento que faltou nas recomendações geradas na Fase 1.
+Esses documentos fornecem a estrutura conceitual e a terminologia padrão para classificar incidentes, enriquecer a extração de atributos operacionais e definir ações de resposta apropriadas. O SP 800-61, em particular, é a referência mais citada na indústria para procedimentos passo a passo de tratamento de incidentes.
 
 ---
 
@@ -33,7 +33,7 @@ Esses documentos fornecem a estrutura conceitual e a terminologia padrão para c
 - **OWASP Cheat Sheets** — guias práticos e objetivos sobre temas específicos (autenticação, validação de entrada, gestão de sessão, etc.).
 
 **Por que são relevantes:**
-Grande parte dos incidentes analisados no notebook (phishing, credential theft, brute force) está diretamente relacionada a vulnerabilidades de aplicação cobertas pelo OWASP. Esse corpus ajuda o sistema a sugerir mitigações técnicas específicas, não apenas genéricas.
+Grande parte dos incidentes analisados no notebook (phishing, credential theft, brute force) está diretamente relacionada a vulnerabilidades de aplicação cobertas pelo OWASP. Esse corpus ajuda o sistema a enriquecer a análise com terminologia padronizada e mitigações técnicas específicas.
 
 ---
 
@@ -57,7 +57,7 @@ O MITRE ATT&CK fornece uma taxonomia padronizada da indústria para descrever **
 - **Cybersecurity Advisories** — boletins regulares sobre ameaças ativas, vulnerabilidades exploradas e recomendações de mitigação.
 
 **Por que são relevantes:**
-Os playbooks da CISA são documentos práticos, orientados à ação — ideais para alimentar a etapa de geração de recomendações (Tarefa 3), substituindo o conhecimento genérico do modelo por procedimentos reconhecidos oficialmente por uma agência governamental de referência.
+Os playbooks da CISA são documentos práticos, orientados à ação, ideais para enriquecer fases futuras com contexto operacional verificável e procedimentos reconhecidos oficialmente por uma agência governamental de referência.
 
 ---
 

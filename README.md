@@ -1,6 +1,6 @@
 # Cybersecurity Incident Analyzer — Fase 1
 
-Sistema de apoio à triagem de incidentes de segurança da informação utilizando modelos de NLP pré-treinados (Hugging Face). Este repositório contém a **Fase 1** do projeto, focada em sumarização, classificação zero-shot e geração de recomendações — sem RAG, embeddings ou recuperação documental, que serão introduzidos em fases futuras.
+Sistema de apoio à triagem de incidentes de segurança da informação utilizando modelos de NLP pré-treinados (Hugging Face). Este repositório contém a **Fase 1** do projeto, focada em sumarização e extração estruturada de informações, sem RAG, embeddings ou recuperação documental, que serão introduzidos em fases futuras.
 
 ## Estrutura do projeto
 
@@ -20,13 +20,10 @@ project/
 ## O que esta fase entrega
 
 1. **Sumarização** de relatos de incidentes (`facebook/bart-large-cnn`)
-2. **Classificação Zero-Shot** da categoria do incidente (`facebook/bart-large-mnli`)
-3. **Geração de recomendações** de resposta inicial (`google/flan-t5-large`)
-4. Demonstração de **tokenização** e explicação de **arquiteturas** de modelos de linguagem (encoder-only, decoder-only, encoder-decoder)
-5. Experimentos com parâmetros de geração (`temperature`, `max_new_tokens`)
-6. Discussão de limitações observadas, motivando a Fase 2 (RAG)
-
-> **Nota sobre o modelo de geração:** a especificação original sugeria `microsoft/Phi-3-mini-4k-instruct` para a Tarefa 3. Neste notebook, optamos por `google/flan-t5-large` como alternativa mais leve, adequada a GPUs de menor porte (ex: T4 no Google Colab). Para usar o Phi-3-mini, basta trocar o nome do modelo na célula correspondente e ajustar o pipeline para `text-generation` com `AutoModelForCausalLM`.
+2. **Extração com NER** retornando diretamente as entidades reconhecidas pelo modelo pré-treinado
+3. Demonstração de **tokenização** e explicação das arquiteturas relevantes ao novo escopo
+4. Inspeção dos tipos de entidades reconhecidos ao longo do dataset
+5. Discussão de limitações observadas, motivando as fases futuras
 
 ## Como executar
 
@@ -51,8 +48,8 @@ pip install -r requirements.txt
 jupyter notebook notebooks/phase1_cybersecurity_incident_analyzer.ipynb
 ```
 
-> Em CPU, a Tarefa 3 (geração com `flan-t5-large`) pode ser mais lenta. Caso necessário, troque para `google/flan-t5-base`, mais leve.
+> Em CPU, a execução continua possível, mas a sumarização e a extração com NER podem levar mais tempo ao processar todo o dataset.
 
 ## Dataset
 
-O notebook utiliza um dataset local de **10 incidentes fictícios**, cobrindo as categorias: Phishing, Ransomware, Malware, Credential Theft, Insider Threat, Brute Force Attack e DDoS. Todos os dados são fictícios, criados exclusivamente para fins didáticos.
+O notebook utiliza um dataset local de **10 incidentes fictícios** em linguagem natural. Todos os dados são fictícios, criados exclusivamente para esse projeto.
