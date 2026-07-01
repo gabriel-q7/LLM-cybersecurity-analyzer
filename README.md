@@ -16,6 +16,9 @@ Este repositório usa **exclusivamente modelos open source disponíveis no Huggi
 ```text
 project/
 │
+├── data/
+│   └── incidents.json                                 # Dataset compartilhado entre as fases
+│
 ├── notebooks/
 │   ├── phase1_cybersecurity_incident_analyzer.ipynb   # Notebook principal da Fase 1
 │   └── phase2_prompt_engineering.ipynb                # Notebook principal da Fase 2
@@ -56,9 +59,17 @@ Entregas da Fase 2:
 
 ### Opção recomendada: Google Colab
 
-1. Faça upload do notebook desejado em `notebooks/` para o [Google Colab](https://colab.research.google.com/).
+1. Clone o repositório dentro do runtime do [Google Colab](https://colab.research.google.com/) ou faça upload do notebook junto com `data/incidents.json`.
 2. Ative o runtime com GPU: `Ambiente de execução > Alterar o tipo de ambiente de execução > GPU (T4 ou superior)`.
 3. Execute as células em sequência, de cima para baixo (`Ambiente de execução > Executar tudo`).
+
+Exemplo:
+
+```python
+!git clone https://github.com/gabriel-q7/LLM-cybersecurity-analyzer.git
+%cd /content/LLM-cybersecurity-analyzer
+!pip install -r requirements.txt
+```
 
 > A Fase 2 baixa um modelo open source do Hugging Face na primeira execução. Em CPU, o notebook continua funcional, mas a geração pode ficar significativamente mais lenta.
 
@@ -84,7 +95,7 @@ Abra então o notebook de interesse:
 
 ## Dataset
 
-O projeto utiliza um dataset local de **10 incidentes fictícios** em linguagem natural. Todos os dados são fictícios e foram criados exclusivamente para este repositório.
+O projeto utiliza um dataset local de **10 incidentes fictícios** em linguagem natural, centralizado em `data/incidents.json`. Todos os dados são fictícios e foram criados exclusivamente para este repositório.
 
 ## Diretriz de evolução
 

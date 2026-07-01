@@ -1,0 +1,165 @@
+[
+  {
+    "id": 1,
+    "text": "On June 14th, multiple employees in the Finance department reported receiving an email claiming to be from the CFO, requesting urgent wire transfers to a new vendor account. The email contained a spoofed domain (cfo-finance-corp.com) and urged recipients to act within one hour to avoid 'contract penalties'. One employee clicked the link and entered their corporate credentials on a fake Office 365 login page before realizing the site was illegitimate. IT Security was notified and the employee's account was immediately disabled pending investigation.",
+    "expected_extraction": {
+      "incident_type": "Phishing",
+      "affected_asset": "Finance employee account",
+      "observables": [
+        "cfo-finance-corp.com",
+        "Office 365"
+      ],
+      "impact": "An employee submitted corporate credentials to a fake Office 365 login page.",
+      "response_actions": [
+        "IT Security was notified",
+        "The employee account was disabled pending investigation"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "text": "At 03:12 AM, the file server hosting the HR department's shared drive became unresponsive. Upon investigation, system administrators discovered that thousands of files had been encrypted and renamed with a '.lockedcorp' extension. A ransom note demanding 5 Bitcoin was found in every affected directory, threatening to leak employee personal data if payment was not made within 72 hours. Backups from the previous night appear unaffected and are being verified for integrity.",
+    "expected_extraction": {
+      "incident_type": "Ransomware",
+      "affected_asset": "HR shared file server",
+      "observables": [
+        ".lockedcorp",
+        "5 Bitcoin",
+        "72 hours"
+      ],
+      "impact": "Thousands of files on the HR shared file server were encrypted.",
+      "response_actions": [
+        "Backups are being verified for integrity"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "text": "Endpoint detection software flagged unusual behavior on a marketing department laptop: a previously unseen executable was making repeated outbound connections to an IP address associated with known command-and-control infrastructure. The process was attempting to enumerate browser-stored credentials and capture keystrokes. The laptop was isolated from the network and a forensic image was taken for analysis.",
+    "expected_extraction": {
+      "incident_type": "Malware",
+      "affected_asset": "Marketing laptop",
+      "observables": [
+        "command-and-control infrastructure",
+        "browser-stored credentials",
+        "keystrokes"
+      ],
+      "impact": "A malicious executable attempted to steal credentials and capture keystrokes from a laptop.",
+      "response_actions": [
+        "The laptop was isolated from the network",
+        "A forensic image was taken for analysis"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "text": "Security monitoring detected that an employee's VPN credentials were used to log in simultaneously from two geographically distant locations — one from the corporate office in Sao Paulo and another from an IP address registered in Eastern Europe, less than ten minutes apart. The employee confirmed they had not traveled and had not shared their password. A password reset and credential rotation was initiated immediately, along with a review of recently accessed systems.",
+    "expected_extraction": {
+      "incident_type": "Credential Theft",
+      "affected_asset": "Employee VPN account",
+      "observables": [
+        "Sao Paulo",
+        "Eastern Europe"
+      ],
+      "impact": "The employee VPN account was accessed from impossible-travel locations within minutes.",
+      "response_actions": [
+        "A password reset was initiated",
+        "Credential rotation was initiated",
+        "Recently accessed systems were reviewed"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "text": "A system administrator with privileged access to the customer database was found to have exported a large volume of customer records to a personal USB drive shortly after receiving a negative performance review. The export occurred outside of normal working hours and was not associated with any approved business task. Data Loss Prevention (DLP) tooling flagged the transfer for review.",
+    "expected_extraction": {
+      "incident_type": "Insider Threat",
+      "affected_asset": "Customer database",
+      "observables": [
+        "personal USB drive",
+        "Data Loss Prevention"
+      ],
+      "impact": "A privileged administrator exported customer records to a personal USB drive.",
+      "response_actions": [
+        "The transfer was flagged for review by DLP tooling"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "text": "The authentication logs for the company's customer-facing web portal show over 40,000 failed login attempts within a two-hour window, originating from a distributed set of IP addresses and targeting a list of common username patterns. The pattern is consistent with an automated credential-stuffing or brute-force attack attempting to compromise customer accounts using leaked password lists.",
+    "expected_extraction": {
+      "incident_type": "Brute Force Attack",
+      "affected_asset": "Customer-facing web portal",
+      "observables": [
+        "40,000 failed login attempts",
+        "distributed IP addresses",
+        "leaked password lists"
+      ],
+      "impact": "The customer-facing web portal was targeted by a large credential-stuffing campaign.",
+      "response_actions": []
+    }
+  },
+  {
+    "id": 7,
+    "text": "The company's primary e-commerce website became completely unreachable for approximately 45 minutes during a major promotional sale. Network monitoring showed an abnormal surge of incoming traffic, estimated at over 200 times normal volume, originating from thousands of distinct IP addresses worldwide and overwhelming the load balancers. The traffic pattern strongly suggests a coordinated denial-of-service attack timed to coincide with peak sales traffic.",
+    "expected_extraction": {
+      "incident_type": "DDoS",
+      "affected_asset": "Primary e-commerce website",
+      "observables": [
+        "45 minutes",
+        "200 times normal volume",
+        "thousands of distinct IP addresses"
+      ],
+      "impact": "The primary e-commerce website became unreachable during a traffic flood.",
+      "response_actions": []
+    }
+  },
+  {
+    "id": 8,
+    "text": "A help desk technician received a phone call from someone claiming to be a senior executive who had 'forgotten' their password and urgently needed it reset to access an important client presentation. The caller was able to provide the executive's employee ID and date of birth, likely gathered from a previous data breach, and pressured the technician to bypass standard identity verification procedures.",
+    "expected_extraction": {
+      "incident_type": "Phishing",
+      "affected_asset": "Executive account",
+      "observables": [
+        "employee ID",
+        "date of birth",
+        "phone call"
+      ],
+      "impact": "A caller used social engineering to pressure the help desk into resetting an executive account password.",
+      "response_actions": []
+    }
+  },
+  {
+    "id": 9,
+    "text": "Anti-virus software on a developer's workstation quarantined a file disguised as a legitimate npm package dependency that had been recently added to a project. Analysis revealed the package contained obfuscated code designed to harvest environment variables, including API keys and cloud credentials, and transmit them to an external server upon installation.",
+    "expected_extraction": {
+      "incident_type": "Malware",
+      "affected_asset": "Developer workstation",
+      "observables": [
+        "npm package dependency",
+        "API keys",
+        "cloud credentials"
+      ],
+      "impact": "A malicious package attempted to harvest API keys and cloud credentials from a developer workstation.",
+      "response_actions": [
+        "Anti-virus software quarantined the file"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "text": "Several customer support agents reported that their session tokens appeared to be reused from unfamiliar devices shortly after they had logged into the support ticketing platform from a coffee shop's public Wi-Fi network. Investigation suggests the sessions may have been intercepted via an unsecured network, allowing an attacker to hijack active sessions without needing the original password.",
+    "expected_extraction": {
+      "incident_type": "Credential Theft",
+      "affected_asset": "Support ticketing platform sessions",
+      "observables": [
+        "session tokens",
+        "public Wi-Fi",
+        "unfamiliar devices"
+      ],
+      "impact": "Active support platform sessions may have been hijacked after token interception on public Wi-Fi.",
+      "response_actions": []
+    }
+  }
+]
