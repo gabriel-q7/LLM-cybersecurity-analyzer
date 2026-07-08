@@ -9,6 +9,7 @@ Este repositório usa **exclusivamente modelos open source disponíveis no Huggi
 - Apenas modelos **open source** hospedados ou distribuídos via **Hugging Face** serão utilizados neste projeto.
 - A Fase 1 usa modelos clássicos de NLP do ecossistema Hugging Face.
 - A Fase 2 usa um modelo instruído open source do Hugging Face para os experimentos de prompt engineering.
+- As duas fases foram consolidadas em um único notebook: `notebooks/main.ipynb`.
 - O projeto não depende de Anthropic, Claude, OpenAI nem qualquer outro modelo proprietário.
 
 ## Estrutura do projeto
@@ -20,8 +21,7 @@ project/
 │   └── incidents.json                                 # Dataset compartilhado entre as fases
 │
 ├── notebooks/
-│   ├── phase1_cybersecurity_incident_analyzer.ipynb   # Notebook principal da Fase 1
-│   └── phase2_prompt_engineering.ipynb                # Notebook principal da Fase 2
+│   └── main.ipynb                                     # Notebook consolidado com as Fases 1 e 2
 │
 ├── docs/
 │   └── recommended_corpus.md                          # Materiais recomendados para a futura fase de RAG
@@ -30,7 +30,9 @@ project/
 └── README.md
 ```
 
-## Fases atuais
+## Notebook principal
+
+O projeto agora está centralizado em `notebooks/main.ipynb`, que reúne as duas etapas já implementadas:
 
 ### Fase 1
 
@@ -71,7 +73,7 @@ Exemplo:
 !pip install -r requirements.txt
 ```
 
-> A Fase 2 baixa um modelo open source do Hugging Face na primeira execução. Em CPU, o notebook continua funcional, mas a geração pode ficar significativamente mais lenta.
+> A seção da Fase 2 dentro de `main.ipynb` baixa um modelo open source do Hugging Face na primeira execução. Em CPU, o notebook continua funcional, mas a geração pode ficar significativamente mais lenta.
 
 ### Opção alternativa: ambiente local
 
@@ -88,10 +90,9 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-Abra então o notebook de interesse:
+Abra então o notebook:
 
-- `notebooks/phase1_cybersecurity_incident_analyzer.ipynb`
-- `notebooks/phase2_prompt_engineering.ipynb`
+- `notebooks/main.ipynb`
 
 ## Dataset
 
