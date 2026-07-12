@@ -9,7 +9,8 @@ Este repositório usa **exclusivamente modelos open source disponíveis no Huggi
 - Apenas modelos **open source** hospedados ou distribuídos via **Hugging Face** serão utilizados neste projeto.
 - A Fase 1 usa modelos clássicos de NLP do ecossistema Hugging Face.
 - A Fase 2 usa um modelo instruído open source do Hugging Face para os experimentos de prompt engineering.
-- As duas fases foram consolidadas em um único notebook: `notebooks/main.ipynb`.
+- A Fase 3 usa um modelo de sentence embeddings open source do Hugging Face (`sentence-transformers/all-MiniLM-L6-v2`) para recuperação semântica.
+- As três fases foram consolidadas em um único notebook: `notebooks/main.ipynb`.
 - O projeto não depende de Anthropic, Claude, OpenAI nem qualquer outro modelo proprietário.
 
 ## Estrutura do projeto
@@ -20,11 +21,16 @@ project/
 ├── data/
 │   └── incidents.json                                 # Dataset compartilhado entre as fases
 │
+├── knowledge_base/                                    # Gerado automaticamente pela Fase 3
+│   ├── pdf/                                            # PDFs baixados (NIST, OWASP, MITRE ATT&CK, CISA)
+│   ├── markdown/                                       # Markdown gerado pelo Docling
+│   └── chroma_db/                                      # Índice vetorial persistido (ChromaDB)
+│
 ├── notebooks/
-│   └── main.ipynb                                     # Notebook consolidado com as Fases 1 e 2
+│   └── main.ipynb                                     # Notebook consolidado com as Fases 1, 2 e 3
 │
 ├── docs/
-│   └── recommended_corpus.md                          # Materiais recomendados para a futura fase de RAG
+│   └── recommended_corpus.md                          # Corpus usado como base de conhecimento na Fase 3
 │
 ├── requirements.txt
 └── README.md
@@ -32,7 +38,7 @@ project/
 
 ## Notebook principal
 
-O projeto agora está centralizado em `notebooks/main.ipynb`, que reúne as duas etapas já implementadas:
+O projeto agora está centralizado em `notebooks/main.ipynb`, que reúne as três etapas já implementadas:
 
 ### Fase 1
 
@@ -57,6 +63,18 @@ Entregas da Fase 2:
 3. Validação rígida com **Pydantic**
 4. Comparação de consistência e uso de tokens entre as técnicas
 
+### Fase 3
+
+Pipeline de **recuperação semântica** (semantic retrieval) sobre uma base de conhecimento de documentos de referência da indústria (NIST, OWASP, MITRE ATT&CK, CISA), sem RAG e sem geração de respostas com LLM.
+
+Entregas da Fase 3:
+
+1. Download automático dos PDFs e conversão para Markdown com **Docling**
+2. Carregamento, chunking e geração de embeddings orquestrados com **LangChain**
+3. Indexação vetorial com **ChromaDB**, incluindo metadados de documento, categoria e seção
+4. Recuperação semântica via Chroma e via **similaridade de cosseno manual** (NumPy), comparadas empiricamente
+5. Avaliação de dez consultas realistas de cibersegurança nas duas estratégias
+
 ## Como executar
 
 ### Opção recomendada: Google Colab
@@ -74,6 +92,8 @@ Exemplo:
 ```
 
 > A seção da Fase 2 dentro de `main.ipynb` baixa um modelo open source do Hugging Face na primeira execução. Em CPU, o notebook continua funcional, mas a geração pode ficar significativamente mais lenta.
+
+> A seção da Fase 3 baixa automaticamente os PDFs da base de conhecimento (requer acesso à internet) e roda o Docling localmente para convertê-los em Markdown. Em CPU, essa conversão pode levar alguns minutos por documento.
 
 ### Opção alternativa: ambiente local
 
