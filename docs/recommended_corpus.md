@@ -1,15 +1,8 @@
-# Corpus Recomendado para Fases Futuras (RAG)
+# Corpus Recomendado para RAG
 
 ## Objetivo deste documento
 
-Este documento lista os materiais de referência recomendados para compor a base de conhecimento externa do **Cybersecurity Incident Analyzer** nas fases futuras do projeto. Esses documentos não são utilizados na Fase 1 — nesta etapa, os modelos de NLP operam exclusivamente com seu conhecimento pré-treinado, sem nenhuma forma de recuperação documental.
-
-A partir da Fase 2, esses materiais servirão de base para:
-
-- geração de **embeddings** e indexação em um **banco de dados vetorial**;
-- **busca semântica** (semantic search) sobre o conteúdo dos documentos;
-- arquitetura **RAG (Retrieval-Augmented Generation)**, na qual trechos relevantes desses documentos são recuperados dinamicamente e fornecidos como contexto ao pipeline analítico;
-- produção de saídas **fundamentadas (grounded)** em fontes reconhecidas pela indústria, enriquecendo extração, análise e etapas posteriores de apoio à resposta.
+Este documento lista os materiais de referência recomendados para compor a base de conhecimento externa do **Cybersecurity Incident Analyzer** nas fases futuras do projeto. Esses documentos não são utilizados na Fase 1 — nesta etapa, os modelos de NLP operam exclusivamente com seu conhecimento pré-treinado, sem nenhuma forma de recuperação documental..
 
 ---
 
@@ -82,5 +75,3 @@ Incidentes de malware e exploração geralmente referenciam vulnerabilidades esp
 | MITRE ATT&CK | Taxonomia de táticas e técnicas de ataque |
 | CISA | Playbooks práticos e alertas oficiais |
 | CVE/NVD | Vulnerabilidades específicas e atualizadas |
-
-Esses cinco corpora, combinados, formam uma base de conhecimento abrangente — cobrindo desde o **processo** de resposta a incidentes até o **detalhe técnico** de vulnerabilidades específicas — que será explorada na arquitetura RAG da Fase 2.
